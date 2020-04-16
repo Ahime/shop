@@ -26,23 +26,25 @@
                     <thead>
                       <tr>
                       	<th>Numéro</th>
-                        <th>Nom & Prénoms</th>
-                        <th>Sexe</th>
-                        <th>Date de Naissance</th>
-                        <th>Email</th>
-                        <th>Téléphone</th>
+                        <th>Nom des boutiques</th>
+                        <th>Pays | Ville</th>
+                        <th>Domaine intervention</th>
+                        <th>Adresse</th>
+                        <th>Propriétaire</th>
+                        <th>date de création</th>
                         <th>Opération</th>
                       </tr>
                     </thead>
                     <tbody> 
-                       @foreach($users as $users)
+                       @foreach($shops as $shops)
                         <tr>
-                          <td>{{ $users->id }}</td>
-                          <td>{{ $users->username }}</td>
-                          <td>{{ $users->sex }}</td>
-                          <td>{{ $users->birthday }}</td>
-                          <td>{{ $users->email }}</td>
-                          <td>{{ $users->phone }}</td>
+                          <td>{{ $shops->id }}</td>
+                          <td>{{ $shops->shopName }}</td>
+                          <td>{{ $shops->country }} | {{ $shops->town }}</td>
+                          <td>{{ $shops->domain }}</td>
+                          <td>{{ $shops->adress }}</td>
+                          <td>Nom boutiquier</td>
+                          <td>{{ $shops->created_at }}</td>
                           <td><a href="">Supprimer</a> | <a href="">Bloquer</a></td>
                         </tr>
                       @endforeach
@@ -50,11 +52,12 @@
                     <tfoot>
                       <tr>
                         <th>Numéro</th>
-                        <th>Nom & Prénoms</th>
-                        <th>Sexe</th>
-                        <th>Date de Naissance</th>
-                        <th>Email</th>
-                        <th>Téléphone</th>
+                        <th>Nom des boutiques</th>
+                        <th>Pays | Ville</th>
+                        <th>Domaine intervention</th>
+                        <th>Adresse</th>
+                        <th>Propriétaire</th>
+                        <th>date de création</th>
                         <th>Opération</th>
                       </tr>
                     </tfoot>

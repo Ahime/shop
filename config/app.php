@@ -166,6 +166,7 @@ return [
          * Package Service Providers...
          */
         MercurySeries\Flashy\FlashyServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
         /*
          * Application Service Providers...
          */

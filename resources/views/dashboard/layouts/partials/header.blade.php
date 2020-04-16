@@ -104,7 +104,7 @@
                 <img src="{{asset('storage/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
-                <p>Karim SODEGLA</p>
+                <p>{{$user->username}}</p>
                 <a href="#"><i class="fa fa-circle text-success"></i>Online</a>
             </div>
         </div>
@@ -129,7 +129,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ route('users.create') }}">
                                         <i class="fa fa-circle-o"></i>
                                         Ajouter un personnel
                                     </a>
@@ -143,7 +143,7 @@
                             <span>PARTENAIRE</span>
                             <ul class="treeview-menu">
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ route('shop.liste') }}">
                                         <i class="fa fa-circle-o"></i>
                                         Liste des vendeurs
                                     </a>
@@ -341,7 +341,7 @@
                 </a>
             </li>
             <li class="header">CONFIDENTIALITE</li>
-                <li><a href="{{ route('deconn') }}">Déconnexion {{ $roles }}</a></li> 
+            <li><a href="{{ route('logout') }}">Déconnexion({{$user->username}})</a></li>
         </ul>
     </section>
 </aside>

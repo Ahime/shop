@@ -8,7 +8,9 @@
         <div class="time">
             <span id="date_heure"></span>
         </div>
-        
+        <div class="pub visible-lg">
+            <marquee class="text-muted">Ahimê vous souhaite un bon shopping depuis votre domicile</marquee>
+        </div>
         <div class="actions visible-xs">
             <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#exampleModal" style="color: #fff">                       
                 <span class="user">
@@ -57,7 +59,7 @@
                         <a href="{{ route('shops.create') }}">Devenir Vendeur</a>
                     </li>
                     <li>
-                        <a href="#">Nos Boutiques</a>
+                        <a href="#">Nos Vendeurs</a>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mon Compte     
@@ -82,15 +84,18 @@
                     <li id="{{set_active_route('users.create')}}">
                         <a href="{{ route('users.create') }}">s'inscrire</a>
                     </li>
+                    <li id="">
+                        <a href="{{ route('login-form') }}">se connecter</a>
+                    </li>
                     <div class="navbar-custom-menu">
                         <ul class="nav navbar-nav hidden-xs">
-                          <!-- User Account: style can be found in dropdown.less -->
+                          <!-- User Account: style can be found in dropdown.less
                             <li class="user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#exampleModal">
                                     <img src="{{ asset('storage/img/user.png') }}" class="user-image" alt="User Image"/>
                                 </a>
                             </li>
-                          <!-- Messages: style can be found in dropdown.less-->
+                          -->
                             <li class="dropdown messages-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                   <img src="{{ asset('storage/img/shopping-cart.png') }}" class="user-image" alt="User Image"/>
@@ -311,46 +316,4 @@
         </ul>
     </section>
 </aside>
-
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog login-box" role="document">
-        <div class="modal-content">
-            <div class="modal-header bg-muted">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">
-                          <i class="fa fa-times-circle pull-right"></i>
-                      </span>
-                  </button>
-            </div>
-            <div class="login-box-body">
-                <p class="login-box-msg">Sign in to start your session</p>
-                <form action="{{route('conn')}}" method="post">
-                    @csrf
-                    <div class="form-group has-feedback {{$errors->has('email') ? 'has-error' : '' }}">
-                        <input type="email" class="form-control" placeholder="Votre Identifiant" name="email" value="{{ old('email') }}" />
-                        <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                    </div>
-                    <div class="form-group has-feedback {{$errors->has('password') ? 'has-error' : '' }}">
-                        <input type="password" class="form-control" placeholder="Votre mot de passe" name="password" value="{{ old('password') }}" />
-                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-6">    
-                            <a href="#">mot de passe oublié</a>               
-                        </div>
-                        <div class="col-xs-6">
-                            <button type="submit" class="btn btn-primary btn-block btn-flat">
-                                Se connecter
-                            </button>
-                        </div>
-                    </div>
-                </form>
-                <div class="social-auth-links text-center">
-                    <a href="#" class="btn btn-block btn-social btn-google-plus btn-flat">
-                      <i class="fa fa-google-plus"></i> Se connecter par google+
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+    

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Session;
 use Illuminate\Support\Facades\DB;
 use App\User;
+use App\Shop;
 
 class DashboardController extends Controller
 {
@@ -18,17 +19,10 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        if (auth()->check() ) {
+    public function index(){
 
-            return view('/dashboard.index');
-        }
-
-        else{
-
-            return back();
-        }
+        return view('/dashboard.index');
+       
     }
 
     /**
@@ -101,7 +95,15 @@ class DashboardController extends Controller
     public function liste()
     {
         $user = Auth()->user();
-        $roles = $user->roles();
-        return view('dashboard/users.userliste',compact('user'));
+        $users = User::all();
+        return view('dashboard/users.userliste',compact('users','user'));
+    }
+
+    public function shop()
+    {
+        $user = Auth()->user();
+        $shops = Shop::all();
+        $owner = User::find(1)->shops()->where('id', '2')->first();
+        return view('dashboard/pages/listeshop',compact('shops','user','owner'));
     }
 }

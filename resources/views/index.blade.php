@@ -94,6 +94,7 @@
             </div><!-- /.box -->
         </div><!-- /.col -->
 	</div>
+
 	<section class="img-section">
 		<h2>Nos articles</h2>
 		<div class="row">

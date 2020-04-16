@@ -37,8 +37,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function shops()
+    {
+        return $this->hasMany('App\Shop','user_id');
+    }
     public function roles() {
 
-        return $this->belongsToMany('App\Role', 'roles_users');
+        return $this->belongsToMany('App\Role', 'role_user', 'user_id', 'role_id');
     }
 }

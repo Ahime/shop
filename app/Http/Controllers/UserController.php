@@ -5,31 +5,30 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 use App\User;
+use App\Role;
 
 class UserController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function create()
+    {   
+        $roles = Role::all();
+        $user = auth()->user();
+        $title = 'register';
+        return view('users.register',compact('title','user','roles')); 
     }
-
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        
-        return view('Users.create');
-    }
-                
+     */   
     /**
      * Store a newly created resource in storage.
      *
@@ -60,10 +59,11 @@ class UserController extends Controller
         $user->save();
             
         $role = DB::table('roles')->where('name', 'buyer')->first();
-
-        DB::table('roles_users')->insert([
+        DB::table('role_user')->insert([
             'user_id' => $user->id,
             'role_id' => $role->id,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
             
         flashy('Votre compte a été crée avec succès');
@@ -114,4 +114,5 @@ class UserController extends Controller
     {
         //
     }
+   
 }

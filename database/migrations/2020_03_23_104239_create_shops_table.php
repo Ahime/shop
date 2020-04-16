@@ -20,6 +20,8 @@ class CreateShopsTable extends Migration
             $table->string('town');
             $table->string('domain');
             $table->string('adress');
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
